@@ -45,7 +45,7 @@ steps:
 # Publish Build Artifacts
 # Publish build artifacts to Azure Artifacts/TFS or a file share
 - task: PublishBuildArtifacts@2
-  inputs:
+  #inputs:
     #pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
     #artifactName: 'drop' 
     #publishLocation: 'Container' # Options: container, filePath
