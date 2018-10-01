@@ -1,9 +1,9 @@
-service: ServerlessDemo
+service: my-express-application
 
 provider:
   name: google
   runtime: nodejs
-  project: my-express-application
+  project: serverlessdemo-218122
   credentials: ~/.gcloud/keyfile.json
 
 plugins:
