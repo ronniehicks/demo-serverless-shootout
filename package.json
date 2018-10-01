@@ -19,6 +19,8 @@
   "homepage": "https://github.com/ronniehicks/demo-serverless-shootout#readme",
   "dependencies": {
     "express": "^4.16.3",
+    "serverless-azure-functions": "^0.6.0",
+    "serverless-google-cloudfunctions": "^2.0.0",
     "serverless-http": "^1.6.0"
   }
 }
