@@ -46,19 +46,19 @@ steps:
 - task: ArchiveFiles@2
   inputs:
     rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
-    includeRootFolder: false 
+    includeRootFolder: false
     #archiveType: 'zip' # Options: zip, 7z, tar, wim
     #tarCompression: 'gz' # Optional. Options: gz, bz2, xz, none
-    #archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip' 
-    #replaceExistingArchive: true 
+    #archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    #replaceExistingArchive: true
 
 
 # Publish Build Artifacts
 # Publish build artifacts to Azure Artifacts/TFS or a file share
 - task: PublishBuildArtifacts@1
   #inputs:
-    #pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-    #artifactName: 'drop' 
+    #pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    #artifactName: 'drop'
     #publishLocation: 'Container' # Options: container, filePath
     #targetPath: # Required when publishLocation == FilePath
     #parallel: false # Optional
