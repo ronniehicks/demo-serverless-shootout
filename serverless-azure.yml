@@ -7,6 +7,13 @@ provider:
 plugins:
   - serverless-azure-functions
 
+package:
+  exclude:
+    - node_modules/**
+    - .gitignore
+    - package.json
+    - .git/**
+
 functions:
   app:
     handler: index.azure

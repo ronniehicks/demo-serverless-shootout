@@ -14,10 +14,10 @@ exports.http = (request, response) => {
 
 module.exports.azure = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
-    context.res = {
+    const res = {
         // status: 200, /* Defaults to 200 */
         body: "Hello World!"
     };
 
-    context.done();
+    context.done(null, res);
 };
