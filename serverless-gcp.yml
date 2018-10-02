@@ -1,0 +1,26 @@
+service: my-express-application
+
+provider:
+  name: google
+  runtime: nodejs
+  project: serverlessdemo-218122
+  credentials: ~/.gcloud/keyfile.json
+  region: us-central1
+
+plugins:
+  - serverless-google-cloudfunctions
+
+package:
+  exclude:
+    - .gitignore
+    - .git/**
+    - _ronniehicks.demo-serverless-shootout/**
+    - node_modules/**
+
+functions:
+  app:
+    handler: http
+    memorySize: 1024
+    timeout: 20s
+    events:
+      - http: path
