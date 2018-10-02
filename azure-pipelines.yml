@@ -22,7 +22,7 @@ steps:
     targetType: 'inline' # Optional. Options: filePath, inline
     #filePath: # Required when targetType == FilePath
     #arguments: # Optional
-    script: 'sudo apt-get -y install libsecret-1-dev' # Required when targetType == Inline
+    script: 'apt-get -y install libsecret-1-dev' # Required when targetType == Inline
     #workingDirectory: # Optional
     #failOnStderr: false # Optional
 
