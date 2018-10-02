@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 pool:
-  vmImage: 'Ubuntu 16.04'
+  vmImage: 'Default'
 
 steps:
 
@@ -14,6 +14,17 @@ steps:
   inputs:
     versionSpec: '8.10'
     checkLatest: true
+
+# Bash
+# Run a Bash script on macOS, Linux, or Windows
+- task: Bash@3
+  inputs:
+    targetType: 'inline' # Optional. Options: filePath, inline
+    #filePath: # Required when targetType == FilePath
+    #arguments: # Optional
+    script: 'sudo apt-get update' # Required when targetType == Inline
+    #workingDirectory: # Optional
+    #failOnStderr: false # Optional
 
 # Bash
 # Run a Bash script on macOS, Linux, or Windows
