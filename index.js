@@ -7,3 +7,7 @@ app.get('/', function (req, res) {
 });
 
 module.exports.handler = serverless(app);
+
+module.exports.googlehttp = (request, response) => {
+    response.status(200).send('Hello World!');
+};

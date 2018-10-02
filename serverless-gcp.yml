@@ -10,10 +10,15 @@ provider:
 plugins:
   - serverless-google-cloudfunctions
 
+package:
+  exclude:
+    - .gitignore
+    - .git/**
+
 functions:
   app:
-    handler: handler
+    handler: googlehttp
     memorySize: 1024
     timeout: 20s
     events:
-      - http: '/*'  
+      - http: path
