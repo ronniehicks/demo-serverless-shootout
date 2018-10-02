@@ -12,11 +12,12 @@ exports.http = (request, response) => {
     response.status(200).send('Hello World!');
 };
 
-exports.azure = (context, req) => {
-    const res = {
-        status: 200,
-        body: 'Hello World!'
+module.exports.azure = function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+    context.res = {
+        // status: 200, /* Defaults to 200 */
+        body: "Hello World!"
     };
 
-    context.done(null, res);
-}
+    context.done();
+};
