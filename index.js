@@ -8,6 +8,6 @@ app.get('/', function (req, res) {
 
 module.exports.handler = serverless(app);
 
-module.exports.googlehttp = (request, response) => {
+exports.http = (request, response) => {
     response.status(200).send('Hello World!');
 };
