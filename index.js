@@ -11,3 +11,12 @@ module.exports.handler = serverless(app);
 exports.http = (request, response) => {
     response.status(200).send('Hello World!');
 };
+
+exports.azure = (context, req) => {
+    const res = {
+        status: 200,
+        body: 'Hello World!'
+    };
+
+    context.done(null, res);
+}
