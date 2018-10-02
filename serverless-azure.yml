@@ -11,10 +11,10 @@ functions:
   app:
     handler: index.azure
     events:
-        - http: true
+      - http: true
         x-azure-settings:
-            methods:
-                - GET
-                - POST
-            authLevel: anonymous
+          methods:
+            - GET
+            - POST
+          authLevel: anonymous
 
