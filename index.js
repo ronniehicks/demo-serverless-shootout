@@ -1,14 +1,15 @@
-const serverless = require('serverless-http');
-const express = require('express');
-const app = express();
+module.exports.aws = (event, context, callback) => {
+    var response = {
+        statusCode: "200",
+        headers: { "Content-Type": "text/html" },
+        body: 'Hello World!'
+    };
+    console.log('I am a log entry!');
+    callback(null, response);
+};
 
-app.get('/', function (req, res) {
-    res.send('Hello World!');
-});
-
-module.exports.handler = serverless(app);
-
-exports.http = (request, response) => {
+module.exports.gcp = (request, response) => {
+    console.log('I am a log entry!');
     response.status(200).send('Hello World!');
 };
 

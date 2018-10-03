@@ -8,7 +8,9 @@ provider:
 
 functions:
   app:
-    handler: index.handler
+    handler: index.aws
+    memorySize: 1024
+    timeout: 20s
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'

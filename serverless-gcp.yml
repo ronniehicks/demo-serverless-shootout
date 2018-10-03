@@ -19,7 +19,7 @@ package:
 
 functions:
   app:
-    handler: http
+    handler: gcp
     memorySize: 1024
     timeout: 20s
     events:
