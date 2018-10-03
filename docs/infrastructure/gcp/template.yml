@@ -1,0 +1,15 @@
+resources:
+- name: sls-my-express-application-dev-1538576027759
+  type: storage.v1.bucket
+- name: my-express-application-dev-app
+  properties:
+    availableMemoryMb: 1024
+    function: gcp
+    httpsTrigger:
+      url: path
+    labels: {}
+    location: us-central1
+    runtime: nodejs
+    sourceArchiveUrl: gs://sls-my-express-application-dev-1538576027759/serverless/my-express-application/dev/1538576030557-2018-10-03T14:13:50.557Z/my-express-application.zip
+    timeout: 20s
+  type: cloudfunctions.v1beta2.function
