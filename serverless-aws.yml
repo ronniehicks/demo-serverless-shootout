@@ -8,7 +8,7 @@ provider:
 
 functions:
   app:
-    handler: index.handler
+    handler: index.aws
     events:
       - http: ANY /
       - http: 'ANY {proxy+}'
