@@ -1,7 +1,11 @@
-
 module.exports.aws = (event, context, callback) => {
+    var response = {
+        statusCode: "200",
+        headers: { "Content-Type": "text/html" },
+        body: 'Hello World!'
+    };
     console.log('I am a log entry!');
-    callback(null, 'Hello World!');
+    callback(null, response);
 };
 
 module.exports.gcp = (request, response) => {
