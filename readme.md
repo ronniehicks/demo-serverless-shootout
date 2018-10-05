@@ -10,6 +10,7 @@ we thought it would be interesting to do an indepth comparision.
 To simplify and standardize our Serverless shootout we have utilized the Serverless Framework.
 We hope you enjoy our analysis below. 
 
+### [Build/Deploy](https://ronniehicks.visualstudio.com/Demo)
 
 
 | Feature | AWS | GCP | AZURE | 
