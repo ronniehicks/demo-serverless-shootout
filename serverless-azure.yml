@@ -15,7 +15,7 @@ package:
     - .git/**
 
 functions:
-  app:
+  hello:
     handler: index.azure
     events:
       - http: true
@@ -24,4 +24,24 @@ functions:
             - GET
             - POST
           authLevel: anonymous
+  SaveUser:
+    handler: persistence-api-azure.SaveUser
+    events:
+      - http: true
+        x-azure-settings:
+          methods:
+            - POST
+            - PUT
+          authLevel: anonymous
+          route: users
+
+  FetchUser:
+    handler: persistence-api-azure.FetchUser
+    events:
+      - http: true
+        x-azure-settings:
+          methods:
+            - GET
+          authLevel: anonymous
+          route: users/{id}
 
