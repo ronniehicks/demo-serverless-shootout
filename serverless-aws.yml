@@ -23,7 +23,7 @@ functions:
           method: get
 
   SaveUser:
-    handler: persistence_api.SaveUser
+    handler: persistence_api_aws.SaveUser
     memorySize: 1024
     timeout: 20s
     events:
@@ -35,7 +35,7 @@ functions:
           method: put
 
   FetchUser:
-    handler: persistence_api.FetchUser
+    handler: persistence_api_aws.FetchUser
     memorySize: 1024
     timeout: 20s
     events:
