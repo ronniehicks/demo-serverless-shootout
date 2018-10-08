@@ -6,10 +6,10 @@ provider:
   stage: dev
   region: us-west-2
   iamRoleStatements:
-  -  Effect: "Allow"
-      Action:
-        - "s3:*"
-      Resource: "arn:aws:s3:::devup-serverless-demo*"
+  - Effect: "Allow"
+    Action:
+      - "s3:*"
+    Resource: "arn:aws:s3:::devup-serverless-demo*"
 
 
 functions:
