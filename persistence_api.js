@@ -1,7 +1,7 @@
 const DatbaseDriver = require('s3-db');
 const database = new DatbaseDriver({
     db: {
-        name: 'serverless-demo',
+        name: 'devup-serverless-demo',
         environment: 'dev',
         allowDrop: true
     },
