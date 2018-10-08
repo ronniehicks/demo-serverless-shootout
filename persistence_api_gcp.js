@@ -41,24 +41,29 @@ module.exports.SaveUser = (request, response) => {
     var name = request.body.name;
     const fileName = "/tmp/" + name + ".json";
     console.log(request);
-    fs.writeFile(fileName, request.body, (error, data) => {
-        storage
-            .bucket(bucketName)
-            .upload(fileName, { gzip: false, cacheControl: 'no-cache' })
-            .then(() => {
-                fs.readFile(fileName, (error, data) => {
-                    if (error) {
-                        console.error('ERROR:', err);
-                        response.status(500).send(err);
-                    } else {
-                        response.status(200).send(data)
-                    }
+    fs.writeFile(fileName, JSON.stringify(request.body), (error, data) => {
+        if (error) {
+            response.status(500).send(error);
+        }
+        else {
+            storage
+                .bucket(bucketName)
+                .upload(fileName, { gzip: false, cacheControl: 'no-cache' })
+                .then(() => {
+                    fs.readFile(fileName, (error, data) => {
+                        if (error) {
+                            console.error('ERROR:', err);
+                            response.status(500).send(err);
+                        } else {
+                            response.status(200).send(JSON.stringify(data));
+                        }
+                    });
+                })
+                .catch(err => {
+                    console.error('ERROR:', err);
+                    response.status(500).send(err);
                 });
-            })
-            .catch(err => {
-                console.error('ERROR:', err);
-                response.status(500).send(err);
-            });
+        }
     });
 };
 
