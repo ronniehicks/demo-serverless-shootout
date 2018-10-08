@@ -11,14 +11,14 @@ module.exports.gcp = (request, response) => {
 
 module.exports.FetchUser = (request, response) => {
     const bucketName = 'devup-serverless-demo';
-    const fileName = "/tmp/user.json";
+    const fileName = request.body.name + ".json";
     const options = {
-        destination: fileName
+        destination: "/tmp/" + fileName
     };
     console.log(request);
     storage
         .bucket(bucketName)
-        .file(request.body.name)
+        .file(fileName)
         .download(options)
         .then(() => {
             fs.readFile(fileName, (error, data) => {
@@ -49,16 +49,7 @@ module.exports.SaveUser = (request, response) => {
             storage
                 .bucket(bucketName)
                 .upload(fileName, { gzip: false, cacheControl: 'no-cache' })
-                .then(() => {
-                    fs.readFile(fileName, (error, data) => {
-                        if (error) {
-                            console.error('ERROR:', err);
-                            response.status(500).send(err);
-                        } else {
-                            response.status(200).send(JSON.stringify(data));
-                        }
-                    });
-                })
+                .then(() => { response.status(200).send(JSON.stringify(request.body)); })
                 .catch(err => {
                     console.error('ERROR:', err);
                     response.status(500).send(err);
