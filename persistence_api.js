@@ -12,6 +12,11 @@ const database = new DatbaseDriver({
 });
 
 module.exports.SaveUser = (event, context, callback) => {
+    var response = {
+        statusCode: 200,
+        headers: { "Content-Type": "application/json" },
+    };
+
     database.getCollection('users', { id: { propertyName: 'name' } })
         .catch(reason => {
             console.error(reason);
