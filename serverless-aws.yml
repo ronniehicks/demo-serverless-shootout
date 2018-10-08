@@ -7,10 +7,32 @@ provider:
   region: us-west-2
 
 functions:
-  app:
+  helloworld:
     handler: index.aws
     memorySize: 1024
     timeout: 20s
     events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+      - http: 
+          path: helloworld
+          method: get
+
+  SaveUser:
+    handler: persistence_api.SaveUser
+    memorySize: 1024
+    timeout: 20s
+    events:
+      - http: 
+          path: users
+          method: post
+      - http: 
+          path: users
+          method: put
+
+  FetchUser:
+    handler: persistence_api.FetchUser
+    memorySize: 1024
+    timeout: 20s
+    events:
+      - http: 
+          path: users/{id}
+          method: get
