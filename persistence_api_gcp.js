@@ -38,10 +38,10 @@ module.exports.FetchUser = (request, response) => {
 
 module.exports.SaveUser = (request, response) => {
     const bucketName = 'devup-serverless-demo';
-    var name = req.body.name;
+    var name = request.body.name;
     const fileName = "/tmp/" + name + ".json";
     console.log(request);
-    fs.writeFile(fileName, req.body, (error, data) => {
+    fs.writeFile(fileName, request.body, (error, data) => {
         storage
             .bucket(bucketName)
             .upload(fileName, { gzip: false, cacheControl: 'no-cache' })
