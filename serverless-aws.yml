@@ -13,7 +13,7 @@ functions:
     timeout: 20s
     events:
       - http: 
-          path: helloworld
+          path: greetings
           method: get
 
   SaveUser:
