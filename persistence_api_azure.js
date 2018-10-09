@@ -13,20 +13,26 @@ module.exports.SaveUser = (context, req) => {
             // result contains true if created; false if already exists
         }
     });
+    context.log(JSON.stringify(item));
+    tableService.insertOrReplaceEntity('users', item, { echoContent: true }, (error, result, response) => {
+        if (error) {
+            context.log(JSON.stringify(error));
+        }
 
-    tableService.insertOrReplaceEntity('users', item, (error, result, response) => {
-        let res = {
-            statusCode: error ? 400 : 204,
-            body: null
-        };
-        context.done(null, res);
+        tableService.retrieveEntity('users', item.id, item.id, (error, internalResult) => {
+            let res = {
+                statusCode: error ? 400 : 200,
+                body: internalResult
+            };
+            context.done(null, res);
+        });
     });
 };
 
 module.exports.FetchUser = (context, req) => {
-    console.log('Finding User For Name:' + event.pathParameters.id);
+    context.log('Finding User For Name:' + req.params.id);
 
-    let id = req.query.id;
+    let id = req.params.id;
 
     let connectionString = process.env.AzureWebJobsStorage;
     let tableService = azure.createTableService(connectionString);
@@ -38,8 +44,8 @@ module.exports.FetchUser = (context, req) => {
 
     tableService.retrieveEntity('users', id, id, (error, response) => {
         let res = {
-            statusCode: error ? 400 : 204,
-            body: null
+            statusCode: error ? 400 : 200,
+            body: response
         };
         context.done(null, res);
     });
