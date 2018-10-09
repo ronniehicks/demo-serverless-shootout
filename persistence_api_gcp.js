@@ -15,7 +15,7 @@ module.exports.FetchUser = (request, response) => {
     const options = {
         destination: "/tmp/" + fileName
     };
-    console.log(request);
+    console.log(request.body);
     storage
         .bucket(bucketName)
         .file(fileName)
@@ -23,16 +23,16 @@ module.exports.FetchUser = (request, response) => {
         .then(() => {
             fs.readFile(fileName, (error, data) => {
                 if (error) {
-                    console.error('ERROR:', err);
-                    response.status(500).send(err);
+                    console.error('ERROR:', error);
+                    response.status(500).send(error);
                 } else {
                     response.status(200).send(data);
                 }
             });
         })
-        .catch(err => {
-            console.error('ERROR:', err);
-            response.status(500).send(err);
+        .catch(error => {
+            console.error('ERROR:', error);
+            response.status(500).send(error);
         });
 };
 
