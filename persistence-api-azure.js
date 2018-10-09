@@ -6,7 +6,7 @@ module.exports.SaveUser = (context, req) => {
     item.PartitionKey = item.id;
     item.RowKey = item.id;
 
-    let connectionString = process.env.StorageConnectionString;
+    let connectionString = process.env.AzureWebJobsStorage;
     let tableService = azure.createTableService(connectionString);
 
     tableService.createTableIfNotExists('users', function (error, result, response) {
