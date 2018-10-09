@@ -14,7 +14,6 @@ package:
     - .git/**
     - _ronniehicks.demo-serverless-shootout/**
     - node_modules/**
-    - *.pptx
     - readme.md
 
 functions:
