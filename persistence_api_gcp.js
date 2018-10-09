@@ -26,7 +26,7 @@ module.exports.FetchUser = (request, response) => {
                     console.error('ERROR:', error);
                     response.status(500).send(error);
                 } else {
-                    response.status(200).send(data);
+                    response.status(200).send(data.toString());
                 }
             });
         })
