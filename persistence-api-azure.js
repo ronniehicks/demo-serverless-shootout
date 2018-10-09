@@ -1,5 +1,4 @@
 var azure = require('azure-storage');
-var tableService = azure.createTableService();
 
 module.exports.SaveUser = (context, req) => {
     let item = req.body;
