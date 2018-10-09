@@ -18,8 +18,22 @@ package:
     - node_modules/**
 
 functions:
-  app:
+  helloworld:
     handler: gcp
+    memorySize: 1024
+    timeout: 20s
+    events:
+      - http: path
+
+  SaveUser:
+    handler: SaveUser
+    memorySize: 1024
+    timeout: 20s
+    events:
+      - http: path
+
+  FetchUser:
+    handler: FetchUser
     memorySize: 1024
     timeout: 20s
     events:
