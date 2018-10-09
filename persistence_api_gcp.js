@@ -15,6 +15,7 @@ module.exports.FetchUser = (request, response) => {
     const options = {
         destination: "/tmp/" + fileName
     };
+    response.setHeader('Content-Type', 'application/json');
     console.log(request.body);
     storage
         .bucket(bucketName)
