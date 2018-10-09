@@ -21,7 +21,7 @@ module.exports.FetchUser = (request, response) => {
         .file(fileName)
         .download(options)
         .then(() => {
-            fs.readFile(fileName, (error, data) => {
+            fs.readFile("/tmp/" + fileName, (error, data) => {
                 if (error) {
                     console.error('ERROR:', error);
                     response.status(500).send(error);
