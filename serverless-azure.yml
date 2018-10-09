@@ -8,6 +8,7 @@ plugins:
   - serverless-azure-functions
 
 package:
+  excludeDevDependencies: false
   exclude:
     - .gitignore
     - .git/**
