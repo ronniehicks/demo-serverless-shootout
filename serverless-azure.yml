@@ -8,10 +8,14 @@ plugins:
   - serverless-azure-functions
 
 package:
-  excludeDevDependencies: false
+  excludeDevDependencies: true
   exclude:
     - .gitignore
     - .git/**
+    - _ronniehicks.demo-serverless-shootout/**
+    - node_modules/**
+    - *.pptx
+    - readme.md
 
 functions:
   hello:
