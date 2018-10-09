@@ -5,12 +5,40 @@ provider:
   runtime: nodejs8.10
   stage: dev
   region: us-west-2
+  iamRoleStatements:
+  - Effect: "Allow"
+    Action:
+      - "s3:*"
+    Resource: "arn:aws:s3:::devup-serverless-demo*"
+
 
 functions:
-  app:
+  helloworld:
     handler: index.aws
     memorySize: 1024
     timeout: 20s
     events:
-      - http: ANY /
-      - http: 'ANY {proxy+}'
+      - http: 
+          path: greetings
+          method: get
+
+  SaveUser:
+    handler: persistence_api_aws.SaveUser
+    memorySize: 1024
+    timeout: 20s
+    events:
+      - http: 
+          path: users
+          method: post
+      - http: 
+          path: users
+          method: put
+
+  FetchUser:
+    handler: persistence_api_aws.FetchUser
+    memorySize: 1024
+    timeout: 20s
+    events:
+      - http: 
+          path: users/{id}
+          method: get
