@@ -27,7 +27,7 @@ functions:
             - POST
           authLevel: anonymous
   SaveUser:
-    handler: persistence-api-azure.SaveUser
+    handler: persistence_api_azure.SaveUser
     events:
       - http: true
         x-azure-settings:
@@ -38,7 +38,7 @@ functions:
           route: users
 
   FetchUser:
-    handler: persistence-api-azure.FetchUser
+    handler: persistence_api_azure.FetchUser
     events:
       - http: true
         x-azure-settings:
