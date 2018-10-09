@@ -1,26 +1,27 @@
 {
-  "name": "demo-serverless-shootout",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/ronniehicks/demo-serverless-shootout.git"
-  },
-  "keywords": [],
-  "author": "Ronnie Hicks",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/ronniehicks/demo-serverless-shootout/issues"
-  },
-  "homepage": "https://github.com/ronniehicks/demo-serverless-shootout#readme",
-  "dependencies": {
-    "@google-cloud/storage": "^2.0.3",
-    "s3-db": "^2.3.1",
-    "serverless-azure-functions": "^0.6.0",
-    "serverless-google-cloudfunctions": "^2.0.0"
-  }
+    "name": "demo-serverless-shootout",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/ronniehicks/demo-serverless-shootout.git"
+    },
+    "keywords": [],
+    "author": "Ronnie Hicks",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/ronniehicks/demo-serverless-shootout/issues"
+    },
+    "homepage": "https://github.com/ronniehicks/demo-serverless-shootout#readme",
+    "dependencies": {
+        "azure-storage": "^2.10.1",
+        "@google-cloud/storage": "^2.0.3",
+        "s3-db": "^2.3.1",
+        "serverless-azure-functions": "^0.6.0",
+        "serverless-google-cloudfunctions": "^2.0.0"
+    }
 }
