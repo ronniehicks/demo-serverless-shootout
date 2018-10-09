@@ -29,7 +29,7 @@ module.exports.FetchUser = (context, req) => {
 
     let id = req.query.id;
 
-    let connectionString = process.env.StorageConnectionString;
+    let connectionString = process.env.AzureWebJobsStorage;
     let tableService = azure.createTableService(connectionString);
     tableService.createTableIfNotExists('users', function (error, result, response) {
         if (!error) {
